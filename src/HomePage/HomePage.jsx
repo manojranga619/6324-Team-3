@@ -3,8 +3,19 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { userActions } from '../_actions';
+import { LoginPage } from '../LoginPage/LoginPage';
 
 class HomePage extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            isLoggedOut: false
+        };
+        this.logout = this.logout.bind(this);
+    }
+
     componentDidMount() {
         this.props.getUsers();
     }
@@ -13,16 +24,25 @@ class HomePage extends React.Component {
         return (e) => this.props.deleteUser(id);
     }
 
+    logout() {
+        this.setState({ isLoggedOut: true });
+    }
+
     render() {
         const { user, users } = this.props;
-        return (
-            <div className="col-md-6 col-md-offset-3">
-                <h1>Welcome!!!</h1>
-                <p>
-                    <Link to="/login">Logout</Link>
-                </p>
-            </div>
-        );
+        let ele;
+        if (this.state.isLoggedOut) {
+            ele = <LoginPage isLoggedOut={true} />
+        }
+        else {
+            ele = (
+                <div className="col-md-6 col-md-offset-3">
+                    <h1>Welcome!!!</h1>
+                    <button className="form-control" onClick={this.logout}>Logout</button>
+                </div>
+            );
+        }
+        return ele;
     }
 }
 

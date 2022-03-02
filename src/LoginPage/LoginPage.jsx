@@ -15,7 +15,8 @@ class LoginPage extends React.Component {
         this.state = {
             username: '',
             password: '',
-            submitted: false
+            submitted: false,
+            isError: false
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -43,7 +44,12 @@ class LoginPage extends React.Component {
         fetch('http://150.158.142.171:8080/api/auth/signin', requestOptions)
             .then(response => response.json())
             .then(data => {
-                this.setState({ submitted: true });
+                if (data.status === 200) {
+                    localStorage.setItem("loggedInUser", data.data);
+                    this.setState({ submitted: true });
+                } else {
+                    this.setState({ isError: true });
+                }
             });
     }
 
@@ -51,10 +57,11 @@ class LoginPage extends React.Component {
         const { loggingIn } = this.props;
         const { username, password, submitted } = this.state;
 
-        let ele;
-        if (submitted) {
-            ele = <HomePage />
-        } else {
+        let ele, error=<div></div>;
+        if (this.state.isError) {
+            error = <label style={{color:'red'}}>Invalid Username or Password.</label>
+        }
+        if (!submitted) { // && this.props['isLoggedOut'] && !this.props.isLoggedOut) {
             ele = (            <div className="col-md-6 col-md-offset-3">
             <h2>Login</h2>
             <form name="form" onSubmit={this.handleSubmit}>
@@ -72,6 +79,7 @@ class LoginPage extends React.Component {
                         <div className="help-block">Password is required</div>
                     }
                 </div>
+                {error}
                 <div className="form-group">
                     <button className="btn btn-primary">Login</button>
                     {loggingIn &&
@@ -81,6 +89,8 @@ class LoginPage extends React.Component {
                 </div>
             </form>
         </div>);
+        } else {
+            ele = <HomePage />
         }
         return (ele);
     }
