@@ -83,14 +83,14 @@ class RegisterPage extends React.Component {
                 <div className="col-md-6 col-md-offset-3">
                     <h2>Register</h2>
                     <form name="form" onSubmit={this.handleSubmit}>
-                        <div className={'form-group' + (submitted && (!user.userName || user.userName.length < 4) ? ' has-error' : '')}>
+                        <div className={'form-group' + (submitted && (!user.userName || user.userName.length < 5) ? ' has-error' : '')}>
                             <label htmlFor="userName">User Name</label>
                             <input type="text" className="form-control" name="userName" value={user.userName} onChange={this.handleChange} />
                             {submitted && !user.userName &&
                                 <div className="help-block">User Name is required</div>
                             }
                             {submitted && user.userName && user.userName.length < 5 &&
-                                <div className="help-block">Username should be atleast 8 charecters</div>
+                                <div className="help-block">Username should be atleast 5 charecters</div>
                             }
                         </div>
                         <div className={'form-group' + (submitted && (!user.email || !ValidateEmail(user.email)) ? ' has-error' : '')}>
