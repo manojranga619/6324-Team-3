@@ -33,7 +33,7 @@ class HomePage extends React.Component {
                 {
                     id: 1,
                     name: 'Glucotrol',
-                    startDate: '03-24-2022',
+                    startDate: '2022-03-24',
                     frequencyPerWeek: 'Weekly',
                     frequencyPerDay: 'Once',
                     dosage: 'Once in a Day',
@@ -42,7 +42,7 @@ class HomePage extends React.Component {
                 {
                     id: 2,
                     name: 'fludrocortisone',
-                    startDate: '03-24-2022',
+                    startDate: '2022-03-24',
                     frequencyPerDay: 'Once',
                     frequencyPerWeek: 'Dialy',
                     dosage: 'Once in a Day',
@@ -51,7 +51,7 @@ class HomePage extends React.Component {
                 {
                     id: 3,
                     name: 'tylenol',
-                    startDate: '03-24-2022',
+                    startDate: '2022-03-24',
                     frequencyPerWeek: 'Dialy',
                     frequencyPerDay: 'Once',
                     dosage: 'Once in a Day',
@@ -226,7 +226,7 @@ class HomePage extends React.Component {
                                                     <tr>
                                                         <td>{vitalSign.id}</td>
                                                         <td>{vitalSign.name}</td>
-                                                        <td>03-24-2022</td>
+                                                        <td>2022-03-24</td>
                                                         {/* <td>{vitalSign.startDate}</td> */}
                                                         {/* <td>{vitalSign.frequency}</td> */}
                                                         <td>Dialy</td>
