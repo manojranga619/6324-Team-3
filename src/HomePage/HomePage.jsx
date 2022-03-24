@@ -169,7 +169,7 @@ class HomePage extends React.Component {
     saveMedication() {
         const medications = this.state.medications;
         const medication = this.state.medication;
-        medication.id = medications.length;
+        medication.id = medications.length + 1;
         medications.push(this.state.medication);
         this.setState({ medications: medications});
         $('#myModalMedication').modal('hide');
