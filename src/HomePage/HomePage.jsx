@@ -44,7 +44,7 @@ class HomePage extends React.Component {
                     name: 'fludrocortisone',
                     startDate: '2022-03-24',
                     frequencyPerDay: 'Once',
-                    frequencyPerWeek: 'Dialy',
+                    frequencyPerWeek: 'Daily',
                     dosage: 'Once in a Day',
                     time: '20:00 AM'
                 },
@@ -52,7 +52,7 @@ class HomePage extends React.Component {
                     id: 3,
                     name: 'tylenol',
                     startDate: '2022-03-24',
-                    frequencyPerWeek: 'Dialy',
+                    frequencyPerWeek: 'Daily',
                     frequencyPerDay: 'Once',
                     dosage: 'Once in a Day',
                     time: '08:00 AM'
@@ -144,7 +144,7 @@ class HomePage extends React.Component {
     saveVitalSign() {
         const postObj = {};
         postObj.name = this.state.vitalSign.name;
-        postObj.frequency = this.state.vitalSign.frequencyPerWeek === '1' ? 'dialy' : 'weekly';
+        postObj.frequency = this.state.vitalSign.frequencyPerWeek === '1' ? 'daily' : 'weekly';
         postObj.frequencyDay = this.state.vitalSign.frequencyPerDay;
         postObj.metrics = this.state.vitalSign.metric;
         postObj.time = this.state.vitalSign.startDate;
@@ -229,7 +229,7 @@ class HomePage extends React.Component {
                                                         <td>2022-03-24</td>
                                                         {/* <td>{vitalSign.startDate}</td> */}
                                                         {/* <td>{vitalSign.frequency}</td> */}
-                                                        <td>Dialy</td>
+                                                        <td>Daily</td>
                                                         {/* <td><button onClick={this.deleteVitalSign(vitalSign.id)}>Delete</button></td> */}
                                                     </tr>
                                                 )
@@ -296,7 +296,7 @@ class HomePage extends React.Component {
                                                 <label htmlFor="frequencyPerWeek">Frequency per week</label>
                                                 <select value={this.state.vitalSign.frequencyPerWeek} onChange={this.handleChange} name='frequencyPerWeek' className="form-control custom-select">
                                                     <option>Open this select menu</option>
-                                                    <option value="1">Dialy</option>
+                                                    <option value="1">Daily</option>
                                                     <option value="2">Weekly</option>
                                                 </select>
                                             </div>
@@ -351,7 +351,7 @@ class HomePage extends React.Component {
                                                 <label>Frequency per week</label>
                                                 <select value={this.state.medication.frequencyPerWeek} onChange={this.handleMedicationChange} name='frequencyPerWeek' className="form-control custom-select">
                                                     <option>Open this select menu</option>
-                                                    <option value="1">Dialy</option>
+                                                    <option value="1">Daily</option>
                                                     <option value="2">Weekly</option>
                                                 </select>
                                             </div>
