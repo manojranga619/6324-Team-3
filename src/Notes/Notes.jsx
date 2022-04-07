@@ -104,7 +104,7 @@ class NotesPage extends React.Component {
 	handleAddClick() {
 		const postObj = {
 			
-			note: this.state.noteText
+			notes: this.state.noteText
 		};
         const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
         const requestOptions = {
@@ -116,7 +116,7 @@ class NotesPage extends React.Component {
             .then(response => response.json())
             .then(data => {
                 if (data.status === 200) {
-                    this.getVitalSigns();
+                    this.getNotes();
 					this.setState({noteText: ''})
                 } else {
                 }
