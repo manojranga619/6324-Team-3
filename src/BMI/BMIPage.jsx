@@ -32,6 +32,7 @@ class BMIPage extends React.Component {
 
     render() {
         return (<div>
+            <Link to="/home" className="btn btn-info">Back</Link>
             <div className="jumbotron">
                 <div className="container">
                     <div className="col-sm-8 col-sm-offset-2">

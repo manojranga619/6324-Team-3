@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { userActions } from '../_actions';
 const date = new Date();
@@ -41,6 +42,7 @@ class NotesPage extends React.Component {
 	render() {
 		return (
 			<div>
+				<Link to="/home" className="btn btn-info">Back</Link>
 				<h2 style={{ textAlign: "center" }}>Notes</h2>
 				<div style={{ padding: "15px" }}>
 					<div style={{ display: "grid", gridGap: "1rem", gridTemplateColumns: styles.notesList.gridTemplateColumns }}>
