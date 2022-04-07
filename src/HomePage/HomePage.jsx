@@ -102,8 +102,6 @@ class HomePage extends React.Component {
             .then(data => {
                 if (data.status === 200) {
                     let vitalSigns = data.data;
-                    // vitalSigns = vitalSigns.concat(vitalSigns);
-                    // vitalSigns = vitalSigns.concat(vitalSigns);
                     this.setState({ vitalSigns: vitalSigns });
                 } else {
                 }
@@ -171,7 +169,7 @@ class HomePage extends React.Component {
         const medication = this.state.medication;
         medication.id = medications.length + 1;
         medications.push(this.state.medication);
-        this.setState({ medications: medications});
+        this.setState({ medications: medications });
         $('#myModalMedication').modal('hide');
     }
 
@@ -200,14 +198,17 @@ class HomePage extends React.Component {
 
                 <div className="">
                     <div className="container-fluid">
-                        <div className='row'>
-                            <button className="pull-right btn btn-primary" onClick={this.logout}>Logout</button>
+                        <div className='row' style={{paddingBottom: "10px"}}>
+                            <Link to="/Notes" className="btn btn-info">Notes</Link>
+                            <Link to="/diet" className="btn btn-info">Diet</Link>
+                            <Link to="/bmi" className="btn btn-info">BMI</Link>
+                            <button className="pull-right btn btn-info" onClick={this.logout}>Logout</button>
                         </div>
                         <div className="row">
                             <div className="jumbotron col-md-12">
                                 <div className=''>
                                     Vital Signs
-                                    <button className='btn btn-primary pull-right' onClick={this.addVitalSign}>Add Vital Sign</button>
+                                    <button className='btn btn-info pull-right' onClick={this.addVitalSign}>Add Vital Sign</button>
                                 </div>
                                 <div className='table-responsive-sm'>
                                     <table className="table">
@@ -241,7 +242,7 @@ class HomePage extends React.Component {
                             <div className="jumbotron col-md-12">
                                 <div className=''>
                                     Medication
-                                    <button className='btn btn-primary pull-right' onClick={this.addMedication}>Add Medication</button>
+                                    <button className='btn btn-info pull-right' onClick={this.addMedication}>Add Medication</button>
                                 </div>
 
                                 <div className='table-responsive-sm'>
@@ -321,7 +322,7 @@ class HomePage extends React.Component {
                                     </div>
                                     <div className="modal-footer">
                                         <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" className="btn btn-primary" onClick={this.saveVitalSign}>Save</button>
+                                        <button type="button" className="btn btn-info" onClick={this.saveVitalSign}>Save</button>
                                     </div>
                                 </div>
                             </div>
@@ -376,7 +377,7 @@ class HomePage extends React.Component {
                                     </div>
                                     <div className="modal-footer">
                                         <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" className="btn btn-primary" onClick={this.saveMedication}>Save</button>
+                                        <button type="button" className="btn btn-info" onClick={this.saveMedication}>Save</button>
                                     </div>
                                 </div>
                             </div>
