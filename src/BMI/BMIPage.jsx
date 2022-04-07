@@ -66,6 +66,7 @@ class BMIPage extends React.Component {
                 </div>
             </div>
             <div className='container'>
+                <h1>Body Mass Index Table</h1>
             <table width="100%" summary="Body Mass Index Reference Table Page 1 of 2" className='container table'>
 
                 <thead> <tr valign="bottom">
