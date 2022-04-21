@@ -27,18 +27,18 @@ class AppointmentsPage extends React.Component {
 
     addAppointment() {
         let errorMessage = '';
-        if (this.state.appointment.doctorName) {
+        if (!this.state.appointment.doctorName) {
             errorMessage += "Doctor's Name ";
         }
 
-        if (this.state.appointment.location) {
+        if (!this.state.appointment.location) {
             errorMessage += errorMessage ? "Location " : ", Location ";
         }
 
-        if (this.state.appointment.time) {
+        if (!this.state.appointment.time) {
             errorMessage += errorMessage ? "Date & Time " : ", Date & Time";
         }
-        if (errorMessage) {
+        if (!errorMessage) {
             let appointments = this.state.appointments;
             appointments.push(this.state.appointment);
             const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
@@ -113,8 +113,8 @@ class AppointmentsPage extends React.Component {
                                 <label>Date Time:</label>
                                 <input className='form-control' style={{ width: '400px' }} type='date' value={this.state.appointment.time} onChange={this.handleChange} name='time' />
                             </div>
-                            <div>
-                                {/* {this.state.errorMessage ?? <label>{this.state.errorMessage}</label>} */}
+                            <div style={{color: 'red'}}>
+                                {this.state.errorMessage ?? <label>{this.state.errorMessage}</label>}
                             </div>
                             <button className='btn btn-primary' style={{ marginTop: '10px' }} onClick={this.addAppointment}>Add Appointment</button>
                         </div>
