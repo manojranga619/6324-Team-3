@@ -96,6 +96,7 @@ class AppointmentsPage extends React.Component {
     render() {
         return (<div>
             <div>
+                <Link to="/home" className="btn btn-info">Back</Link>
                 <div className='row'>
                     <div className='col-md-6'>
                         <div className='container'>
