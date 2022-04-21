@@ -12,6 +12,7 @@ class HomePage extends React.Component {
 
         this.state = {
             isLoggedOut: false,
+            searchText: '',
             vitalSign: {
                 name: '',
                 startDate: '',
@@ -65,7 +66,10 @@ class HomePage extends React.Component {
         this.saveVitalSign = this.saveVitalSign.bind(this);
         this.saveMedication = this.saveMedication.bind(this);
         this.deleteVitalSign = this.deleteVitalSign.bind(this);
+        this.handleChangeSearch = this.handleChangeSearch.bind(this);
+        this.getMedications = this.getMedications.bind(this);
         this.getVitalSigns();
+        this.getMedications();
     }
 
     componentDidMount() {
@@ -124,16 +128,19 @@ class HomePage extends React.Component {
             });
     }
 
-    getMedicationss() {
+    getMedications() {
         const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
         const requestOptions = {
-            method: 'GET',
+            method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + loggedInUser.accessToken },
+            body: JSON.stringify({ 'keyword': this.state.searchText || '' })
         };
-        fetch('http://150.158.142.171:8080/api/sign/feed', requestOptions)
+        fetch('http://150.158.142.171:8080/api/medication/search', requestOptions)
             .then(response => response.json())
             .then(data => {
                 if (data.status === 200) {
+                    let medications = data.data;
+                    this.setState({ medications: medications });
                 } else {
                 }
             });
@@ -187,6 +194,10 @@ class HomePage extends React.Component {
         this.setState({ medication: medication });
     }
 
+    handleChangeSearch(e) {
+        this.setState({ searchText: e.target.value });
+    }
+
     render() {
         const { user, users } = this.props;
         let ele;
@@ -198,10 +209,11 @@ class HomePage extends React.Component {
 
                 <div className="">
                     <div className="container-fluid">
-                        <div className='row' style={{paddingBottom: "10px"}}>
+                        <div className='row' style={{ paddingBottom: "10px" }}>
                             <Link to="/Notes" className="btn btn-info">Notes</Link>
                             <Link to="/diet" className="btn btn-info">Diet</Link>
                             <Link to="/bmi" className="btn btn-info">BMI</Link>
+                            <Link to="/appointments" className="btn btn-info">Appointments</Link>
                             <button className="pull-right btn btn-info" onClick={this.logout}>Logout</button>
                         </div>
                         <div className="row">
@@ -240,9 +252,14 @@ class HomePage extends React.Component {
                                 </div>
                             </div>
                             <div className="jumbotron col-md-12">
-                                <div className=''>
-                                    Medication
-                                    <button className='btn btn-info pull-right' onClick={this.addMedication}>Add Medication</button>
+                                <div className='row'>
+                                    <div className='col-md-5' style={{display: 'flex'}}>
+                                        <input type="text" value={this.state.searchText} onChange={this.handleChangeSearch} style={{ width: '200px' }} className='form-control' /><i style={{ marginTop: '10px', marginLeft: '5px', cursor: 'pointer' }} onClick={this.getMedications} className='fa fa-search'></i>                                        
+                                    </div>
+                                    <div className='col-md-3' style={{textAlign: 'center'}}>Medication</div>
+                                    <div className='col-md-4'>
+                                        <button className='btn btn-info pull-right' onClick={this.addMedication}>Add Medication</button>
+                                    </div>
                                 </div>
 
                                 <div className='table-responsive-sm'>
@@ -261,7 +278,8 @@ class HomePage extends React.Component {
                                                     <tr>
                                                         <td>{item.id}</td>
                                                         <td>{item.name}</td>
-                                                        <td>{item.startDate}</td>
+                                                        <td>2022-03-24</td>
+                                                        {/* <td>{item.startDate}</td> */}
                                                         <td>200 mg</td>
                                                         {/* <td>{item.dosage}</td> */}
                                                         {/* <td><button onClick={this.deleteVitalSign(vitalSign.id)}>Delete</button></td> */}
