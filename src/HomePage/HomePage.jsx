@@ -219,7 +219,7 @@ class HomePage extends React.Component {
                         <div className="row">
                             <div className="jumbotron col-md-12">
                                 <div className=''>
-                                    Vital Signs
+                                    <label style={{textAlign: 'center', fontSize: '25px', paddingLeft: "600px"}}>Vital Signs</label>
                                     <button className='btn btn-info pull-right' onClick={this.addVitalSign}>Add Vital Sign</button>
                                 </div>
                                 <div className='table-responsive-sm'>
@@ -229,8 +229,8 @@ class HomePage extends React.Component {
                                                 <th scope="col">#</th>
                                                 <th scope="col">Name</th>
                                                 <th scope="col">Start Date</th>
-                                                <th scope="col">Frequency</th>
-                                                {/* <th scope='col'>Actions</th> */}
+                                                <th scope="col">Frequency per week</th>
+                                                <th scope="col">Frequency per day</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -241,8 +241,8 @@ class HomePage extends React.Component {
                                                         <td>{vitalSign.name}</td>
                                                         <td>2022-03-24</td>
                                                         {/* <td>{vitalSign.startDate}</td> */}
-                                                        {/* <td>{vitalSign.frequency}</td> */}
-                                                        <td>Daily</td>
+                                                        <td>{vitalSign.frequency}</td>
+                                                        <td>{vitalSign.frequencyDay == 1 ? 'Once': 'Twice' }</td>
                                                         {/* <td><button onClick={this.deleteVitalSign(vitalSign.id)}>Delete</button></td> */}
                                                     </tr>
                                                 )
@@ -256,7 +256,9 @@ class HomePage extends React.Component {
                                     <div className='col-md-5' style={{display: 'flex'}}>
                                         <input type="text" value={this.state.searchText} onChange={this.handleChangeSearch} style={{ width: '200px' }} className='form-control' /><i style={{ marginTop: '10px', marginLeft: '5px', cursor: 'pointer' }} onClick={this.getMedications} className='fa fa-search'></i>                                        
                                     </div>
-                                    <div className='col-md-3' style={{textAlign: 'center'}}>Medication</div>
+                                    <div className='col-md-3'>
+                                        <label style={{textAlign: 'center', fontSize: '25px'}}>Medication</label>
+                                    </div>
                                     <div className='col-md-4'>
                                         <button className='btn btn-info pull-right' onClick={this.addMedication}>Add Medication</button>
                                     </div>
@@ -270,6 +272,8 @@ class HomePage extends React.Component {
                                                 <th scope="col">Name</th>
                                                 <th scope="col">Start Date</th>
                                                 <th scope="col">Dosage</th>
+                                                <th scope="col">Frequency per week</th>
+                                                <th scope="col">Frequency per day</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -281,8 +285,8 @@ class HomePage extends React.Component {
                                                         <td>2022-03-24</td>
                                                         {/* <td>{item.startDate}</td> */}
                                                         <td>200 mg</td>
-                                                        {/* <td>{item.dosage}</td> */}
-                                                        {/* <td><button onClick={this.deleteVitalSign(vitalSign.id)}>Delete</button></td> */}
+                                                        <td>{item.frequency}</td>
+                                                        <td>{item.frequencyDay == 1 ? 'Once': 'Twice' }</td>
                                                     </tr>
                                                 )
                                             })}

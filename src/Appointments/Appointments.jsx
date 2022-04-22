@@ -127,7 +127,7 @@ class AppointmentsPage extends React.Component {
                                     <div style={{ width: "50rem", border: "2px solid #e7dddd", borderRadius: "2rem", marginTop: "10px" }}>
                                         <div style={{ padding: "10px" }}>
                                             <h3 style={{ marginTop: "10px" }}>{element.doctorName}</h3>
-                                            <strong>at:</strong><span style={{ marginLeft: "5px" }}>{element.location}</span><strong style={{ marginLeft: "50px" }}>time:</strong> <span style={{ marginLeft: "5px" }}>{element.time}</span>
+                                            <strong>at:</strong><span style={{ marginLeft: "5px" }}>{element.location}</span><strong style={{ marginLeft: "50px" }}>date:</strong> <span style={{ marginLeft: "5px" }}>{element.time}</span>
                                             {/* <i onClick={this.removeAppointment(element)} className="fa fa-times pull-right" style={{ cursor: 'pointer', marginRight: "20px", color: 'red' }}></i> */}
                                             <i onClick={() => this.removeAppointment(element)} className="fa fa-times pull-right" style={{ cursor: 'pointer', marginRight: "20px", color: 'red' }}></i>
                                         </div>
