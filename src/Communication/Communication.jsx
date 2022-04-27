@@ -21,7 +21,6 @@ class CommunicationPage extends React.Component {
 
     render() {
         return (<div>
-            Communication Page
             <Editor
                 apiKey='cr62hirykwu7p2ybs9eypp9qzdbxumxo3qy9v1kq6y6zyxcm'
                 value={this.state.convertedText}
