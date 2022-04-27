@@ -12,6 +12,7 @@ import { NotesPage } from '../Notes/Notes';
 import { DietPlanPage } from '../Diet/Diet';
 import { BMIPage } from '../BMI/BMIPage';
 import { AppointmentsPage } from '../Appointments/Appointments';
+import { CommunicationPage } from '../Communication/Communication';
 
 class App extends React.Component {
     constructor(props) {
@@ -40,6 +41,7 @@ class App extends React.Component {
                         <Route path="/diet" component={DietPlanPage} />
                         <Route path="/bmi" component={BMIPage} />
                         <Route path="/appointments" component={AppointmentsPage} />
+                        <Route path="/contact" component={CommunicationPage} />
                         <Redirect from="*" to="/" />
                     </Switch>
                 </Router>

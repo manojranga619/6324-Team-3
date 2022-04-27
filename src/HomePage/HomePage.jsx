@@ -214,6 +214,7 @@ class HomePage extends React.Component {
                             <Link to="/diet" className="btn btn-info">Diet</Link>
                             <Link to="/bmi" className="btn btn-info">BMI</Link>
                             <Link to="/appointments" className="btn btn-info">Appointments</Link>
+                            <Link to="/contact" className="btn btn-info">Contact</Link>
                             <button className="pull-right btn btn-info" onClick={this.logout}>Logout</button>
                         </div>
                         <div className="row">
