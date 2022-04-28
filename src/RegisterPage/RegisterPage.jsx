@@ -59,7 +59,7 @@ class RegisterPage extends React.Component {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(reqBody)
             };
-            fetch('http://150.158.142.171:8080/api/auth/signup', requestOptions)
+            fetch('http://43.155.86.152:8080/api/auth/signup', requestOptions)
                 .then(response => response.json())
                 .then(data => {
                     if (data.status === 200) {

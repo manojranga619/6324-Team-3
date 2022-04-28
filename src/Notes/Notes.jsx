@@ -84,7 +84,7 @@ class NotesPage extends React.Component {
             method: 'GET',
             headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + loggedInUser.accessToken },
         };
-        fetch('http://150.158.142.171:8080/api/notes', requestOptions)
+        fetch('http://43.155.86.152:8080/api/notes', requestOptions)
             .then(response => response.json())
             .then(data => {
 				this.setState({ notes: data.data });
@@ -97,7 +97,7 @@ class NotesPage extends React.Component {
             method: 'DELETE',
             headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + loggedInUser.accessToken },
         };
-        fetch('http://150.158.142.171:8080/api/notes/' + note.id, requestOptions)
+        fetch('http://43.155.86.152:8080/api/notes/' + note.id, requestOptions)
             .then(response => response.json())
             .then(data => {
                 this.getNotes();
@@ -115,7 +115,7 @@ class NotesPage extends React.Component {
             headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + loggedInUser.accessToken },
             body: JSON.stringify(postObj)
         };
-        fetch('http://150.158.142.171:8080/api/notes', requestOptions)
+        fetch('http://43.155.86.152:8080/api/notes', requestOptions)
             .then(response => response.json())
             .then(data => {
                 if (data.status === 200) {
