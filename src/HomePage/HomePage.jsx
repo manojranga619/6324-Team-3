@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import { userActions } from '../_actions';
 import { LoginPage } from '../LoginPage/LoginPage';
+// import Background from "../20043.jpg";
 
 class HomePage extends React.Component {
 
@@ -207,7 +208,8 @@ class HomePage extends React.Component {
         else {
             ele = (
 
-                <div className="">
+                <div style={{ backgroundImage: `url(${ 'src/20043.png'})`}}>
+                    <h1 style={{ paddingLeft: '500px', fontWeight: 'bold' }}>Public Health Monitoring System</h1>
                     <div className="container-fluid">
                         <div className='row' style={{ paddingBottom: "10px" }}>
                             <Link to="/Notes" className="btn btn-info">Notes</Link>
@@ -218,7 +220,7 @@ class HomePage extends React.Component {
                             <button className="pull-right btn btn-info" onClick={this.logout}>Logout</button>
                         </div>
                         <div className="row">
-                            <div className="jumbotron col-md-12">
+                            <div style={{margin: '50px'}} className="jumbotron">
                                 <div className=''>
                                     <label style={{textAlign: 'center', fontSize: '25px', paddingLeft: "600px"}}>Vital Signs</label>
                                     <button className='btn btn-info pull-right' onClick={this.addVitalSign}>Add Vital Sign</button>
@@ -252,7 +254,7 @@ class HomePage extends React.Component {
                                     </table>
                                 </div>
                             </div>
-                            <div className="jumbotron col-md-12">
+                            <div style={{margin: '50px'}}  className="jumbotron">
                                 <div className='row'>
                                     <div className='col-md-5' style={{display: 'flex'}}>
                                         <input type="text" value={this.state.searchText} onChange={this.handleChangeSearch} style={{ width: '200px' }} className='form-control' /><i style={{ marginTop: '10px', marginLeft: '5px', cursor: 'pointer' }} onClick={this.getMedications} className='fa fa-search'></i>                                        

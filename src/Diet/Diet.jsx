@@ -66,7 +66,8 @@ class DietPlanPage extends React.Component {
 
     render() {
         return (
-            <div>
+            <div style={{ backgroundImage: `url(${'src/20043.png'})`, height: '710px' }}>
+                <h1 style={{ paddingLeft: '500px', fontWeight: 'bold' }}>Public Health Monitoring System</h1>
                 <Link to="/home" className="btn btn-info">Back</Link>
                 <h2 style={{ textAlign: "center" }}>Diet Plan</h2>
                 <div style={{ padding: "15px" }}>

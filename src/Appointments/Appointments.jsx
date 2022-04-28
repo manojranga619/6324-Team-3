@@ -94,7 +94,8 @@ class AppointmentsPage extends React.Component {
     }
 
     render() {
-        return (<div>
+        return (<div style={{ backgroundImage: `url(${'src/20043.png'})`, height: '710px', backgroundSize: 'contain' }}>
+            <h1 style={{ paddingLeft: '500px', fontWeight: 'bold' }}>Public Health Monitoring System</h1>
             <div>
                 <Link to="/home" className="btn btn-info">Back</Link>
                 <div className='row'>
@@ -113,7 +114,7 @@ class AppointmentsPage extends React.Component {
                                 <label>Date Time:</label>
                                 <input className='form-control' style={{ width: '400px' }} type='date' value={this.state.appointment.time} onChange={this.handleChange} name='time' />
                             </div>
-                            <div style={{color: 'red'}}>
+                            <div style={{ color: 'red' }}>
                                 {this.state.errorMessage ?? <label>{this.state.errorMessage}</label>}
                             </div>
                             <button className='btn btn-primary' style={{ marginTop: '10px' }} onClick={this.addAppointment}>Add Appointment</button>
