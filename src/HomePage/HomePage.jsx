@@ -101,7 +101,7 @@ class HomePage extends React.Component {
             method: 'GET',
             headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + loggedInUser.accessToken },
         };
-        fetch('http://150.158.142.171:8080/api/vital', requestOptions)
+        fetch('http://43.155.86.152:8080/api/vital', requestOptions)
             .then(response => response.json())
             .then(data => {
                 if (data.status === 200) {
@@ -118,7 +118,7 @@ class HomePage extends React.Component {
             method: 'DELETE',
             headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + loggedInUser.accessToken },
         };
-        fetch('http://150.158.142.171:8080/api/vital/' + id, requestOptions)
+        fetch('http://43.155.86.152:8080/api/vital/' + id, requestOptions)
             .then(response => response.json())
             .then(data => {
                 if (data.status === 200) {
@@ -135,7 +135,7 @@ class HomePage extends React.Component {
             headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + loggedInUser.accessToken },
             body: JSON.stringify({ 'keyword': this.state.searchText || '' })
         };
-        fetch('http://150.158.142.171:8080/api/medication/search', requestOptions)
+        fetch('http://43.155.86.152:8080/api/medication/search', requestOptions)
             .then(response => response.json())
             .then(data => {
                 if (data.status === 200) {
@@ -160,7 +160,7 @@ class HomePage extends React.Component {
             headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + loggedInUser.accessToken },
             body: JSON.stringify(postObj)
         };
-        fetch('http://150.158.142.171:8080/api/vital', requestOptions)
+        fetch('http://43.155.86.152:8080/api/vital', requestOptions)
             .then(response => response.json())
             .then(data => {
                 if (data.status === 200) {

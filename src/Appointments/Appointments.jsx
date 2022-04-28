@@ -47,7 +47,7 @@ class AppointmentsPage extends React.Component {
                 headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + loggedInUser.accessToken },
                 body: JSON.stringify(this.state.appointment)
             };
-            fetch('http://150.158.142.171:8080/api/appointment', requestOptions)
+            fetch('http://43.155.86.152:8080/api/appointment', requestOptions)
                 .then(response => response.json())
                 .then(data => {
                     if (data.status === 200) {
@@ -67,7 +67,7 @@ class AppointmentsPage extends React.Component {
             method: 'DELETE',
             headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + loggedInUser.accessToken },
         };
-        fetch('http://150.158.142.171:8080/api/appointment/' + item.id, requestOptions)
+        fetch('http://43.155.86.152:8080/api/appointment/' + item.id, requestOptions)
             .then(response => response.json())
             .then(data => {
                 this.getAppointments();
@@ -86,7 +86,7 @@ class AppointmentsPage extends React.Component {
             method: 'GET',
             headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + loggedInUser.accessToken },
         };
-        fetch('http://150.158.142.171:8080/api/appointment', requestOptions)
+        fetch('http://43.155.86.152:8080/api/appointment', requestOptions)
             .then(response => response.json())
             .then(data => {
                 this.setState({ appointments: data.data });
