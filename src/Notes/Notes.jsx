@@ -14,7 +14,7 @@ const styles = {
 		)`
 	},
 	note: {
-		backgroundColor: "#fef68a",
+		backgroundColor: "lightskyblue",
 		borderRadius: "10px",
 		padding: "1rem",
 		minHeight: "170px",

@@ -41,6 +41,7 @@ class CommunicationPage extends React.Component {
     render() {
         return (<div style={{ backgroundImage: `url(${'src/20043.png'})`, height: '710px', backgroundSize: 'contain' }}>
             <h1 style={{ paddingLeft: '500px', fontWeight: 'bold' }}>Public Health Monitoring System</h1>
+            <Link to="/home" className="btn btn-info">Back</Link>
             <div style={{marginLeft: '250px'}}>
                 <Editor
                     apiKey='cr62hirykwu7p2ybs9eypp9qzdbxumxo3qy9v1kq6y6zyxcm'

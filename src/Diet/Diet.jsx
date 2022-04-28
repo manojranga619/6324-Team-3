@@ -14,7 +14,8 @@ const styles = {
 		)`
     },
     note: {
-        backgroundColor: `rgb(53 215 220)`,
+        backgroundColor: 'lightskyblue',
+        // `rgb(53 215 220)`,
         borderRadius: "10px",
         padding: "1rem",
         minHeight: "170px",
@@ -74,7 +75,7 @@ class DietPlanPage extends React.Component {
                     <div style={{ display: "grid", gridGap: "1rem", gridTemplateColumns: styles.notesList.gridTemplateColumns }}>
                         {this.state.dietPlans.map((dietPlan, i) => {
                             return (
-                                <div id={i} style={{ backgroundColor: `rgb(53 215 220)`, borderRadius: "10px", padding: "1rem", minHeight: "170px", display: "flex", flexDirection: "column", justifyContent: "space-between", whiteSpace: "pre-wrap" }}>
+                                <div id={i} style={{ backgroundColor: `lightskyblue`, borderRadius: "10px", padding: "1rem", minHeight: "170px", display: "flex", flexDirection: "column", justifyContent: "space-between", whiteSpace: "pre-wrap" }}>
                                     <span>{dietPlan.plan}</span>
                                     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "5px" }}>
                                         <small>{date.toLocaleDateString()}</small>
